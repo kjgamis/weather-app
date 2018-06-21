@@ -9,11 +9,11 @@ const API_KEY = '9b1f3a63c822bb3747599ee339af431e'
 
 class App extends Component {
   state = {
-    temperature: undefined,
     city:        undefined,
     country:     undefined,
-    humidity:    undefined,
+    temperature: undefined,
     description: undefined,
+    humidity:    undefined,
     error:       undefined
 
   }
@@ -29,14 +29,16 @@ class App extends Component {
     const data     = await api_call.json()
     console.log(data)
 
-    this.setSate({
-      temperature: data.main.temp,
-      city:        data.name,
-      country:     data.sys.country,
-      humidity:    data.main.humidity,
-      description: data.weather[0].description,
-      error:       ''
-    })
+    if (city && country) {
+      this.setState({
+        city:        data.name,
+        country:     data.sys.country,
+        temperature: data.main.temp,
+        description: data.weather[0].description,
+        humidity:    data.main.humidity,
+        error:       ''
+      });
+    }
 
   }
 
@@ -46,7 +48,14 @@ class App extends Component {
         <h1>This is the container</h1>
         <Titles />
         <Form getWeather={this.getWeather}/>
-        <Weather />
+        <Weather
+        city       ={this.state.city}
+        country    ={this.state.country}
+        temperature={this.state.temperature}
+        description={this.state.description}
+        humidity   ={this.state.humidity}
+        error      ={this.state.error}
+        />
       </div>
     );
   }
