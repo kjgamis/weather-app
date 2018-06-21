@@ -5,10 +5,10 @@ class Weather extends Component {
     return (
       <div>
         { this.props.city && this.props.country && <p>Location:    { this.props.city } { this.props.country }</p> }
-        { this.props.temperature && <p>Temperature: { this.props.temperature }</p> }
+        { this.props.temperature && <p>Temperature: { this.props.temperature }C</p> }
         { this.props.description && <p>Conditions:  { this.props.description }</p> }
-        { this.props.humidity && <p>Humidity:    { this.props.humidity }</p> }
-        { this.props.error && <p>{ this.props.error }</p> }
+        { this.props.humidity &&    <p>Humidity:    { this.props.humidity }%</p> }
+        { this.props.error &&       <p>{ this.props.error }</p> }
       </div>
     )
   }

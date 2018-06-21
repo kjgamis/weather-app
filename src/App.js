@@ -29,6 +29,7 @@ class App extends Component {
     const data     = await api_call.json()
     console.log(data)
 
+    // avoids breaking the app if button is clicked with blank values in the form
     if (city && country) {
       this.setState({
         city:        data.name,
@@ -38,6 +39,15 @@ class App extends Component {
         humidity:    data.main.humidity,
         error:       ''
       });
+    } else {
+      this.setState({
+        city:        undefined,
+        country:     undefined,
+        temperature: undefined,
+        description: undefined,
+        humidity:    undefined,
+        error:       'Please enter a valid city and country'
+      })
     }
 
   }
