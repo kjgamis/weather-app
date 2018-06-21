@@ -1,6 +1,7 @@
-# Weather Finder app
+# Weather Finder
 
 ### Built using React
 
-### openweathermap API used to fetch location and weather information
-### boostrapped for responsiveness
+##### integrate ES6 for functional components and use class properties to initialize state without having to use a constructor.
+##### fetch location and weather information from OpenWeatherMap API 
+##### boostrapped for responsiveness
