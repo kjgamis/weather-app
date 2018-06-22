@@ -10,7 +10,7 @@ class Form extends Component {
           <button>Get Weather</button>
         </form>
 
-        <button onClick={this.clearForm}>Reset</button>
+        <button id='reset' onClick={this.clearForm}>Reset</button>
       </div>
     )
   }

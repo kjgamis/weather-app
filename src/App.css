@@ -104,3 +104,9 @@ button {
 button:active {
   outline: none;
 }
+
+#reset {
+  position: absolute;
+  bottom: 10%;
+  left: 10%;
+}
