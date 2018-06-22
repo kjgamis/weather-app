@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 
-import Titles  from './Titles'
 import Form    from './Form'
 import Weather from './Weather'
 
@@ -65,31 +64,17 @@ class Current extends Component {
 
   render() {
     return(
-        <div className="wrapper">
-          <div className="main">
-              <div className="row">
-
-                <div className="col-md-5 title-container">
-                  <Titles />
-                </div>
-
-                <div className="col-md-7 form-container">
-                  <Form
-                    getWeather={this.getWeather}
-                  />
-                  <Weather
-                    city       ={this.state.city}
-                    country    ={this.state.country}
-                    temperature={this.state.temperature}
-                    description={this.state.description}
-                    humidity   ={this.state.humidity}
-                    error      ={this.state.error}
-                  />
-                </div>
-
-              </div>
-            </div>
-        </div>
+      <div>
+        <Form getWeather={this.getWeather} />
+        <Weather
+          city       ={this.state.city}
+          country    ={this.state.country}
+          temperature={this.state.temperature}
+          description={this.state.description}
+          humidity   ={this.state.humidity}
+          error      ={this.state.error}
+        />
+      </div>
     )
   }
 }
