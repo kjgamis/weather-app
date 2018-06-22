@@ -53,7 +53,7 @@ body {
 }
 
 .weather-info {
-  width: 60%;
+  width: 100%;
   font-size: 20px;
   font-weight: 200;
   letter-spacing: 2px;
@@ -62,13 +62,19 @@ body {
 .weather-key {
   color: #f16051;
   border-bottom: solid 2px rgba(255,255,255,0.06);
-  padding: 20px 0 20px 0;
+  margin: 7.5% 20% 7.5% 0;
   font-weight: 400;
 }
 
 .weather-value {
   color: #fff;
   font-weight: 200;
+}
+
+/* grid only applies to 3hr interval display */
+.three-hour-display {
+  display: grid;
+  grid-template-columns: 23% 23% 23% 23%;
 }
 
 input[type="text"] {

@@ -10,7 +10,7 @@ import Titles  from './components/Titles'
 
 import Home    from './components/Home'
 import Current from './components/Current'
-import Fiveday from './components/Fiveday'
+import NineHours from './components/NineHours'
 
 class App extends Component {
 
@@ -28,11 +28,11 @@ class App extends Component {
               <div className="col-md-7 form-container">
                 <Link to='/'>Home</Link>{' '}
                 <Link to='/current'>Current Weather</Link>{' '}
-                <Link to='/fiveday'>Five Day Forecast</Link>
+                <Link to='/ninehours'>3 Hour Intervals</Link>
 
                 <Route exact path='/' component={Home} />
                 <Route path='/current' component={Current} />
-                <Route path='/fiveday' component={Fiveday} />
+                <Route path='/ninehours' component={NineHours} />
               </div>
             </div>
           </div>
