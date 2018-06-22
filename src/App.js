@@ -26,9 +26,11 @@ class App extends Component {
               </div>
 
               <div className="col-md-7 form-container">
-                <Link to='/'>Home</Link>{' '}
-                <Link to='/current'>Current Weather</Link>{' '}
-                <Link to='/ninehours'>3 Hour Intervals</Link>
+                <nav>
+                  <Link to='/'>Home</Link>
+                  <Link to='/current'>Current Weather</Link>
+                  <Link to='/ninehours'>3 Hour Intervals</Link>
+                </nav>
 
                 <Route exact path='/' component={Home} />
                 <Route path='/current' component={Current} />
