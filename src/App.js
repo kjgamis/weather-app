@@ -51,6 +51,19 @@ class App extends Component {
 
   }
 
+  clearForm = e => {
+    e.preventDefault();
+    
+    this.setState({
+      city:        undefined,
+      country:     undefined,
+      temperature: undefined,
+      description: undefined,
+      humidity:    undefined,
+      error:       undefined
+    })
+  }
+
   render() {
     return (
       <div>
@@ -63,14 +76,16 @@ class App extends Component {
                 </div>
 
                 <div className="col-md-7 form-container">
-                  <Form getWeather={this.getWeather}/>
+                  <Form
+                    getWeather={this.getWeather}
+                  />
                   <Weather
-                  city       ={this.state.city}
-                  country    ={this.state.country}
-                  temperature={this.state.temperature}
-                  description={this.state.description}
-                  humidity   ={this.state.humidity}
-                  error      ={this.state.error}
+                    city       ={this.state.city}
+                    country    ={this.state.country}
+                    temperature={this.state.temperature}
+                    description={this.state.description}
+                    humidity   ={this.state.humidity}
+                    error      ={this.state.error}
                   />
                 </div>
 
