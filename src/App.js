@@ -3,7 +3,8 @@ import React, { Component } from 'react';
 import {
   BrowserRouter as Router,
   Route,
-  Link
+  Link,
+  Switch
 } from 'react-router-dom';
 
 import Titles  from './components/Titles'
@@ -11,6 +12,7 @@ import Titles  from './components/Titles'
 import Home    from './components/Home'
 import Current from './components/Current'
 import NineHours from './components/NineHours'
+import Navigation from './components/Navigation'
 
 class App extends Component {
 
@@ -19,25 +21,29 @@ class App extends Component {
     return (
       <Router>
         <div className="wrapper">
-          <div className="main">
-            <div className="row">
-              <div className="col-md-5 title-container">
-                <Titles />
-              </div>
+          <Switch>
 
-              <div className="col-md-7 form-container">
-                <nav>
-                  <Link to='/'>Home</Link>
-                  <Link to='/current'>Current Weather</Link>
-                  <Link to='/ninehours'>3 Hour Intervals</Link>
-                </nav>
+            <div className="main">
+              <div className="row">
 
-                <Route exact path='/' component={Home} />
-                <Route path='/current' component={Current} />
-                <Route path='/ninehours' component={NineHours} />
+                <div className="col-md-5 title-container">
+                  <Titles />
+                </div>
+
+                <div className="col-md-7 form-container">
+                  <Navigation />
+
+                  <Route exact path='/' component={Home} />
+                  <Route path='/current' component={Current} />
+                  <Route path='/ninehours' component={NineHours} />
+                </div>
+
               </div>
             </div>
-          </div>
+
+          </Switch>
+
+
         </div>
       </Router>
     );
