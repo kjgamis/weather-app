@@ -52,7 +52,7 @@ body {
   line-height: 1.5;
 }
 
-nav {
+.navbar {
   position: absolute;
   top: 3%;
 }
