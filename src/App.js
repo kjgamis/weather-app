@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import {
   BrowserRouter as Router,
   Route,
-  Link,
   Switch
 } from 'react-router-dom';
 
@@ -13,6 +12,7 @@ import Home    from './components/Home'
 import Current from './components/Current'
 import NineHours from './components/NineHours'
 import Navigation from './components/Navigation'
+import Error from './components/Error'
 
 class App extends Component {
 
@@ -21,28 +21,26 @@ class App extends Component {
     return (
       <Router>
         <div className="wrapper">
-          <Switch>
 
-            <div className="main">
-              <div className="row">
+          <div className="main">
+            <div className="row">
 
-                <div className="col-md-5 title-container">
-                  <Titles />
-                </div>
+              <div className="col-md-5 title-container">
+                <Titles />
+              </div>
 
-                <div className="col-md-7 form-container">
-                  <Navigation />
-
+              <div className="col-md-7 form-container">
+                <Navigation />
+                <Switch>
                   <Route exact path='/' component={Home} />
                   <Route path='/current' component={Current} />
                   <Route path='/ninehours' component={NineHours} />
-                </div>
-
+                  <Route component={Error} />
+                </Switch>
               </div>
+
             </div>
-
-          </Switch>
-
+          </div>
 
         </div>
       </Router>
