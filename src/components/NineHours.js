@@ -31,7 +31,7 @@ class NineHours extends Component {
 
   }
 
-  getWeather = async (e) => {
+  getWeather = (e) => {
     e.preventDefault()
 
     // values from input
@@ -39,64 +39,69 @@ class NineHours extends Component {
     const country = e.target.elements.country.value;
     const API_KEY = '9b1f3a63c822bb3747599ee339af431e'
 
-    const api_call = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city},${country}&appid=${API_KEY}&units=metric`)
-    const data     = await api_call.json()
-    console.log(data)
+    fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city},${country}&appid=${API_KEY}&units=metric`)
+    .then((response) => { return response.json() })
+    .then((data)     => {
+      console.log(data)
+      // avoids breaking the app if button is clicked with blank values in the form
+      if (city && country) {
+        this.setState({
+          next3Hours:   '3 Hours:',
+          next6Hours:   '6 Hours:',
+          next9Hours:   '9 Hours:',
 
-    // avoids breaking the app if button is clicked with blank values in the form
-    if (city && country) {
-      this.setState({
-        next3Hours:   '3 Hours:',
-        next6Hours:   '6 Hours:',
-        next9Hours:   '9 Hours:',
+          temperature3: data.list[0].main.temp,
+          description3: data.list[0].weather[0].description,
+          humidity3:    data.list[0].main.humidity,
+          wind3:        data.list[0].wind.speed,
+          pressure3:    data.list[0].main.pressure,
 
-        temperature3: data.list[0].main.temp,
-        description3: data.list[0].weather[0].description,
-        humidity3:    data.list[0].main.humidity,
-        wind3:        data.list[0].wind.speed,
-        pressure3:    data.list[0].main.pressure,
+          temperature6: data.list[1].main.temp,
+          description6: data.list[1].weather[0].description,
+          humidity6:    data.list[1].main.humidity,
+          wind6:        data.list[1].wind.speed,
+          pressure6:    data.list[1].main.pressure,
 
-        temperature6: data.list[1].main.temp,
-        description6: data.list[1].weather[0].description,
-        humidity6:    data.list[1].main.humidity,
-        wind6:        data.list[1].wind.speed,
-        pressure6:    data.list[1].main.pressure,
+          temperature9: data.list[2].main.temp,
+          description9: data.list[2].weather[0].description,
+          humidity9:    data.list[2].main.humidity,
+          wind9:        data.list[2].wind.speed,
+          pressure9:    data.list[2].main.pressure,
 
-        temperature9: data.list[2].main.temp,
-        description9: data.list[2].weather[0].description,
-        humidity9:    data.list[2].main.humidity,
-        wind9:        data.list[2].wind.speed,
-        pressure9:    data.list[2].main.pressure,
+          error:       ''
+        });
+      } else {
+        this.setState({
+          next3Hours:   undefined,
+          next6Hours:   undefined,
+          next9Hours:   undefined,
 
-        error:       ''
-      });
-    } else {
-      this.setState({
-        next3Hours:   undefined,
-        next6Hours:   undefined,
-        next9Hours:   undefined,
+          temperature3: undefined,
+          description3: undefined,
+          humidity3:    undefined,
+          wind3:        undefined,
+          pressure3:    undefined,
 
-        temperature3: undefined,
-        description3: undefined,
-        humidity3:    undefined,
-        wind3:        undefined,
-        pressure3:    undefined,
+          temperature6: undefined,
+          description6: undefined,
+          humidity6:    undefined,
+          wind6:        undefined,
+          pressure6:    undefined,
 
-        temperature6: undefined,
-        description6: undefined,
-        humidity6:    undefined,
-        wind6:        undefined,
-        pressure6:    undefined,
+          temperature9: undefined,
+          description9: undefined,
+          humidity9:    undefined,
+          wind9:        undefined,
+          pressure9:    undefined,
 
-        temperature9: undefined,
-        description9: undefined,
-        humidity9:    undefined,
-        wind9:        undefined,
-        pressure9:    undefined,
+          error:       'Please enter a valid city and country'
+        })
+      }
 
-        error:       'Please enter a valid city and country'
-      })
-    }
+    })
+    .catch((ex) => {
+      console.log('Error while parsing data')
+    })
 
   }
 
