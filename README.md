@@ -1,7 +1,9 @@
-# Weather Finder
+# Solar Weather Finder
 
-### Built using React
+## Built using React
 
-##### integrate ES6 for functional components and use class properties to initialize state without having to use a constructor.
-##### fetch location and weather information from OpenWeatherMap API
-##### boostrap-ed for responsiveness
+Integrate ES6 for functional components and use class properties to initialize state without having to use a constructor.
+Fetch location and weather information from OpenWeatherMap API
+Boostrap usedfor responsiveness
+
+Visit [Solar Weather Finder](https://solar-weather.herokuapp.com/)
