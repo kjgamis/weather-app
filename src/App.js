@@ -15,7 +15,13 @@ import Navigation from './components/Navigation'
 import Error from './components/Error'
 
 class App extends Component {
-
+  constructor() {
+    super()
+    // Add your tracking ID created from https://analytics.google.com/analytics/web/#home/
+    ReactGA.initialize('UA-123130196-2');
+    // This just needs to be called once since we have no routes in this case.
+    ReactGA.pageview(window.location.pathname);
+  }
 
   render() {
     return (
