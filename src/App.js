@@ -14,6 +14,8 @@ import NineHours from './components/NineHours'
 import Navigation from './components/Navigation'
 import Error from './components/Error'
 
+import ReactGA from 'react-ga'; // https://github.com/react-ga/react-ga
+
 class App extends Component {
   constructor() {
     super()
